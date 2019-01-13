@@ -5,9 +5,9 @@ header-img: img/new-york.jpg
 email: viewsetting@gmail.com
 description: "Nothing is nothing."
 keyword: " machine learning, ACM-ICPC, NLP "
-url: "http://viewsettings.github.io"          # your host, for absolute URL
+url: "http://bigganbing.github.io"          # your host, for absolute URL
 baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
-github_repo: "https://github.com/viewsetting/viewsetting.github.io.git" # you code repository
+github_repo: "https://github.com/bigganbing/bigganbing.github.io.git" # you code repository
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
