@@ -1,3 +1,19 @@
+---
+layout:     post
+title:      markdown  note
+subtitle:   Debut in Jan.2019
+date:       2019-01-14
+author:     biggan
+header-img: img/post-bg-swift.jpg
+catalog: true
+tags:
+    - tools
+---
+
+
+
+
+
 ###### 1.标题
 
 # 一级标题
