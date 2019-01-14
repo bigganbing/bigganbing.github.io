@@ -23,35 +23,21 @@ tags:
 ##### 五级标题
 
       正文............
-
-
+      
 
 ###### 2.居中
 
 \<center\>**这是要居中的文本内容**\</center\>
 
 
-
-
-
-
-
-
-
 ###### 3.图片插入
 
-The image :[apple-touch](https://github.com/bigganbing/bigganbing.github.io/blob/master/img/apple-touch-icon.png)
-
+an image : ![apple-touch](https://github.com/bigganbing/bigganbing.github.io/blob/master/img/apple-touch-icon.png)
 
 
 ###### 4.超链接
 
 [百度一下](www.baidu.com)
-
-```html
-<a href="https://www.jianshu.com/u/1f5ac0cf6a8b" target="_blank">简书</a>
-```
-
 
 
 ###### 5.引用
@@ -61,7 +47,6 @@ The image :[apple-touch](https://github.com/bigganbing/bigganbing.github.io/blob
 > > 我也是引用的
 
 > >我才是引用的
-
 
 
 ###### 6.列表
@@ -78,8 +63,6 @@ The image :[apple-touch](https://github.com/bigganbing/bigganbing.github.io/blob
 - 列表3
 
   * 3.1
-
-  
 
 ###### 7.表格
 
