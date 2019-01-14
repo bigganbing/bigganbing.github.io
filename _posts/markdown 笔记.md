@@ -32,6 +32,12 @@ tags:
 
 
 
+
+
+
+
+
+
 ###### 3.图片插入
 
 The image :[apple-touch](https://github.com/bigganbing/bigganbing.github.io/blob/master/img/apple-touch-icon.png)
