@@ -12,7 +12,7 @@ github_repo: "https://github.com/bigganbing/bigganbing.github.io.git" # you code
 # Sidebar settings  侧边栏
 sidebar: true                           # whether or not using Sidebar.
 sidebar-about-description: "Coding fun!"
-sidebar-avatar: /img/avatar_m.jpg    # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-avatar: /img/金木.jpeg    # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
 # SNS settings  社交账号
@@ -96,6 +96,10 @@ service-worker: true
 
 # Friends
 friends: [
+ {
+        title: "CZH的Blog",
+        href: "https://viewsetting.github.io"
+    },
  {
         title: "WDNB的Blog",
         href: "https://zoomdong.site"
