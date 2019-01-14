@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      markdown  note
+title:      markdown note
 subtitle:   Debut in Jan.2019
 date:       2019-01-14
 author:     biggan
@@ -9,10 +9,6 @@ catalog: true
 tags:
     - tools
 ---
-
-
-
-
 
 ###### 1.标题
 
@@ -26,7 +22,7 @@ tags:
 
 ##### 五级标题
 
-正文............
+      正文............
 
 
 
