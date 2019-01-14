@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      a article
+title:      an article
 subtitle:   Debut in Mar.2016
 date:       2019-01-14
 author:     biggan
