@@ -1,22 +1,21 @@
 # Site settings
 title: Blog of bigganbing
-SEOTitle: bigganbing
+SEOTitle: 干冰的博客
 header-img: img/post-bg-coffee.jpeg
 email: bigganbing@gmail.com
-description: "Nothing is nothing."
+description: "Just do it."
 keyword: "NLP,ML,rookie"
 url: "http://bigganbing.github.io"          # your host, for absolute URL
 baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
 github_repo: "https://github.com/bigganbing/bigganbing.github.io.git" # you code repository
 
-# Sidebar settings
+# Sidebar settings  侧边栏
 sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "Take your time!"
+sidebar-about-description: "Coding fun!"
 sidebar-avatar: /img/avatar_m.jpg    # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
-
-# SNS settings
+# SNS settings  社交账号
 RSS: true
 # weibo_username:     qiubaiying
 # zhihu_username:     chen-zhen-hao-19
@@ -27,11 +26,10 @@ github_username:    bigganbing
 
 
 
-
-# Build settings
+# Build settings   
 # from 2016, 'pygments' is unsupported on GitHub Pages. Use 'rouge' for highlighting instead.
 permalink: pretty
-paginate: 10
+paginate: 10  #一页放文章数量
 exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
 anchorjs: true                          # if you want to customize anchor. check out line:181 of `post.html`
 
@@ -71,10 +69,10 @@ gitalk:
 
 
 # 统计
-
 # Analytics settings
 # Baidu Analytics
 #ba_track_id: b50bf2b12b5338a1845e33832976fd68
+
 
 #Google Analytics
 #ga_track_id: 'UA-127060267-1'            # Format: UA-xxxxxx-xx
