@@ -32,7 +32,7 @@ tags:
 
 ###### 3.图片插入
 
-an image : ![apple-touch](https://github.com/bigganbing/bigganbing.github.io/blob/master/img/apple-touch-icon.png)
+an image : ![apple-touch](/img/apple-touch-icon.png)
 
 
 ###### 4.超链接
