@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      markdown note
-subtitle:   Debut in Jan.2019
+subtitle:   markdown简单使用
 date:       2019-01-14
 author:     biggan
 header-img: img/post-bg-swift.jpg
@@ -33,7 +33,6 @@ tags:
 ###### 3.图片插入
 
 an image : ![apple-touch](/img/apple-touch-icon.png)
-
 
 ###### 4.超链接
 
