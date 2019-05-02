@@ -6,7 +6,7 @@ email: bigganbing@gmail.com
 description: "Just do it."
 keyword: "NLP,ML,rookie"
 url: "http://bigganbing.github.io"          # your host, for absolute URL
-baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
+baseurl: "/bigganbing.github/"      # for example, '/blog' if your blog hosted on 'host/blog'
 github_repo: "https://github.com/bigganbing/bigganbing.github.io.git" # you code repository
 
 # Sidebar settings  侧边栏
