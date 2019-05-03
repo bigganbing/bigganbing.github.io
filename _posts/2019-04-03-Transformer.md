@@ -94,7 +94,7 @@ $\longrightarrow$当前句子某一个单词向量$Q_i$的更新过程如下：
 
 ​	Model.py	**get_sinusoid_encoding_table()**
 
-![TIM截图20190403165729](../img/TIM截图20190403165729.jpg)
+![TIM截图20190403165729](/img/TIM截图20190403165729.jpg)
 
 $$\longrightarrow cal\_angle(pos,2i) =\frac{pos}{10000^{\frac{2i}{d_{model}}}},PE(pos,2i)=sin( cal\_angle(pos,2i))$$
 
