@@ -31,17 +31,13 @@ Decoders由$N_X$层相同的decoder层连接构成。
 
 ###### 3.encoder结构
 
-
-
-![TIM截图20190403110500_gaitubao_com_546x269](./img/TIM截图20190403110500_gaitubao_com_546x269.jpg)
+![TIM截图20190403110500_gaitubao_com_546x269](/img/TIM截图20190403110500_gaitubao_com_546x269.jpg)
 
 ###### 4.decoder结构
 
-![TIM截图20190403111456_gaitubao_com_553x352](./img/TIM截图20190403111456_gaitubao_com_553x352.jpg)
+![TIM截图20190403111456_gaitubao_com_553x352](/img/TIM截图20190403111456_gaitubao_com_553x352.jpg)
 
-​	transformer【以二层为例】![transformer_resideual_layer_norm_3](../img/transformer_resideual_layer_norm_3-1554266713598.png)
-
-
+​	transformer【以二层为例】![transformer_resideual_layer_norm_3](/img/transformer_resideual_layer_norm_3-1554266713598.png)
 
 
 
@@ -81,7 +77,7 @@ $\longrightarrow$当前句子某一个单词向量$Q_i$的更新过程如下：
 - 训练：
 
 
-![TIM截图20190403133914](../img/TIM截图20190403133914-1554279735144.jpg)
+![TIM截图20190403133914](/img/TIM截图20190403133914-1554279735144.jpg)
 
 **note**：
 
@@ -110,19 +106,19 @@ $$\longrightarrow cal\_angle(pos,2i+1) =\frac{pos}{10000^{\frac{2i}{d_{model}}}}
 
 ​		Modules.py	**ScaledDotProductAttention()**
 
-​	![TIM截图20190403172227](../img/TIM截图20190403172227.jpg)
+​	![TIM截图20190403172227](/img/TIM截图20190403172227.jpg)
 
 ​	②MultiHeadAttention
 
 ​		Sublayer.py	**MultiHeadAttention()**
 
-![TIM截图20190403172414](../img/TIM截图20190403172414.jpg)
+![TIM截图20190403172414](/img/TIM截图20190403172414.jpg)
 
 ###### (3 FeedForward
 
 Sublayer.py 	**PositionwiseFeedForward()**	
 
-![TIM截图20190403174057](../img/TIM截图20190403174057.jpg)
+![TIM截图20190403174057](/img/TIM截图20190403174057.jpg)
 
 ###### (4 Encoder,Decoder
 
@@ -142,11 +138,11 @@ Models.py	Transformer()
 
 ###### （1）seq2seq translation模型架构
 
-![seq2seq](../img/seq2seq.jpg)
+![seq2seq](/img/seq2seq.jpg)
 
 ###### （2）GNMT模型架构
 
-![img](../img/u=740328268,2424793692&fm=15&gp=0.jpg)
+![img](/img/u=740328268,2424793692&fm=15&gp=0.jpg)
 
 ###### （3）三者比较
 
