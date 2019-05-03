@@ -13,7 +13,7 @@ tags:
 
 #### 1. transformer架构
 
-![attention is](./img/attention is.jpg)
+![attention is](/img/attention is.jpg)
 
 ##### 分析
 
