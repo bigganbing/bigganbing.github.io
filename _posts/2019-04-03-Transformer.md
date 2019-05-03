@@ -13,7 +13,7 @@ tags:
 
 #### 1. transformer架构
 
-![attention is](img/attention is.jpg)
+![attention is](./img/attention is.jpg)
 
 ##### 分析
 
@@ -33,11 +33,11 @@ Decoders由$N_X$层相同的decoder层连接构成。
 
 
 
-![TIM截图20190403110500_gaitubao_com_546x269](../img/TIM截图20190403110500_gaitubao_com_546x269.jpg)
+![TIM截图20190403110500_gaitubao_com_546x269](./img/TIM截图20190403110500_gaitubao_com_546x269.jpg)
 
 ###### 4.decoder结构
 
-![TIM截图20190403111456_gaitubao_com_553x352](../img/TIM截图20190403111456_gaitubao_com_553x352.jpg)
+![TIM截图20190403111456_gaitubao_com_553x352](./img/TIM截图20190403111456_gaitubao_com_553x352.jpg)
 
 ​	transformer【以二层为例】![transformer_resideual_layer_norm_3](../img/transformer_resideual_layer_norm_3-1554266713598.png)
 
