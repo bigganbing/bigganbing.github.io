@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      Text Classification（一）
+title:      Text Classification（1）
 subtitle:   文本分类一
 date:       2018-11-15
 author:     biggan
@@ -99,16 +99,16 @@ typora-root-url: ..
 
 通过此方法，就能计算一个文本中每一个单词的tf-idf值，然后将文本表示成一个词汇表长度的向量，此向量的每一个位置对应一个单词，若该位置对应单词在文本中出现，则其值为单词的tf-idf，若未出现则为0。
 
-#### （3）利用sklearn工具包提取文本tf-idf特征。
+#### （3）利用sklearn工具包提取文本tf-idf特征
 
-- （2）中tf-idf特征提取是基于文档中的单词，往往文本中短语，即n_gram信息对文本分类也有很大的帮助，进行tfidf特征提取时，也可以以文本中的n_gram为元素。此时，$文本向量的长度=词汇总数+n\_gram$总数。
+- （2）中tf-idf特征提取是基于文档中的单词，往往文本中短语，即ngram信息对文本分类也有很大的帮助，进行tfidf特征提取时，也可以以文本中的ngram为元素。此时，$文本向量的长度=词汇总数+ngram$总数。
 
 - $sklearn$中tf-idf特征提取函数$TfidfVectorizer$
 
   $tf
-  = TfidfVectorizer(ngram\_range=(1, 2), analyzer=char')$
+  = TfidfVectorizer(ngram\_range=(1, 2), analyzer=char)$
 
-  通过$ngram\_range$参数可以指定$n\_gram$长度，(1,2)表示提取单词和二元组的$tfidf$特征。
+  通过$ngram\_range$参数可以指定$ngram$长度，(1,2)表示提取单词和二元组的$tfidf$特征。
 
 #### （4）分类
 
