@@ -67,21 +67,25 @@ typora-root-url: ..
       - 双向gru编码
 
       句子中的每个单词就是gru中的一个时刻，先查询词向量表, 得到单词对应的词向量，然后将词向量喂 给这个gru，然后可以得到一个正向的输出和一个反向的输出，接着把正向和反向的输出向量串接起来，作为当前时刻的输出。
+      
+      
       $$
       \vec{h_{t}}=\vec{gru}(x_t),t\in[1,T]	\\
       \overleftarrow {h_t}=\overleftarrow{gru}(x_t),t\in[1,T]\\
-      h_t=[\vec{h_{t}},\overleftarrow {h_t}]
+  h_t=[\vec{h_{t}},\overleftarrow {h_t}]
       $$
 
     - Word Attention
-
+    
       因为文本中每个单词对文本主题的重要性不相同，因此使用Attention机制描述每个单词的重要性。对word encoder中每个单词的输出$h_t$乘以一个权重$\alpha_t$ ，再求和作为文本的向量表示$s$。
+      
+      
       $$
-      u_t=tanh(W_w h_t+b_w)\\
+    u_t=tanh(W_w h_t+b_w)\\
       \alpha_t=\frac{exp(u_{t}^Tu_w)}{\sum_t exp(u_{k}^Tu_w)}\\
-      s=\sum_t \alpha_t h_t
+    s=\sum_t \alpha_t h_t
       $$
-
+      
       - $tanh(W_w h_t+b_w)$相当于一个线性层
       - $\alpha_t=\frac{exp(u_{t}^Tu_w)}{\sum_t exp(u_{k}^Tu_w)}$其实是一个点乘+一个softmax层
       - $u_w$是一个和模型一起训练的参数。
