@@ -54,13 +54,13 @@ typora-root-url: ..
 
   - 模型结构
 
-    ![textRNN_attn](/img/textRNN_attn-1556979692010.jpg)
+    ![TIM截图20190505131123](/img/TIM截图20190505131123.jpg)
 
     - word
       embedding
 
       - 词向量表$W_e$可以使用Word2vec等工具预训练的词向量，也可以先随机初始化一个词向量表，然后词向量随模型一起训练。 
-      - 对于单词$w_t$，其词嵌入$x_{it}$如下
+      - 对于单词$w_t$，其词嵌入$x_{t}$如下
 
       $$
       x_{t}=W_ew_{t},t\in[1,T]
@@ -92,7 +92,7 @@ typora-root-url: ..
       $$
       
       - $tanh(W_w h_t+b_w)$相当于一个线性层
-      - $\alpha_t=\frac{exp(u_{t}^Tu_w)}{\sum_t exp(u_{k}^Tu_w)}$其实是一个点乘+一个softmax层
+      - $\alpha_t=\frac{exp(u_{t}^Tu_w)}{\sum_t exp(u_{t}^Tu_w)}$其实是一个点乘+一个softmax层
       - $u_w$是一个和模型一起训练的向量参数
       - **note**：这里使用的权重计算方式，只是Attention求权重的众多方式之一
       
@@ -265,4 +265,12 @@ typora-root-url: ..
   
   ```
 
-  
+
+
+
+**参考链接**
+
+https://www.cs.cmu.edu/~diyiy/docs/naacl16.pdf
+
+https://www.jianshu.com/p/37422ce8b2d7
+

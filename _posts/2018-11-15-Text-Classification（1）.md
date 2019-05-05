@@ -124,5 +124,9 @@ $Hs = HashingVectorizer(ngram_range=(1, 1), n\_features = 1024)$
 
 
 
+**参考链接**
 
+https://www.zhihu.com/question/35486862
+
+https://www.cnblogs.com/pinard/p/6688348.html
 
