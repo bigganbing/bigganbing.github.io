@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      Text Classification（3）
-subtitle:   文本分类二（TextCNN、TextRCNN、DPCNN)
+subtitle:   文本分类三（TextCNN、TextRCNN、DPCNN)
 date:       2019-01-05
 author:     biggan
 header-img: img/post-bg-swift.jpg
@@ -157,3 +157,129 @@ Deep Pyramid Convolutional Neural Networks
 本质是一种深层的cnn，能有效表达文本长距离关系的复杂度词粒度的CNN。
 
 #### （1）网络结构
+
+![dpcnn](/img/dpcnn-1557041161264.png)
+
+#### （2）结构解析
+
+1. Region embedding
+
+   &emsp;用channels_size个尺寸为[3，dim]的卷积核，对文本的词向量矩阵，以步长stride=1，进行卷积，生成channels_size个长度为sent_len-2的特征向量。将这channels_size个特征向量拼接在一起就可 以组成一个维度为[sent_len-2，channels_size]的矩阵，称  Region embedding。
+
+2. 等长卷积
+
+   - 先对Region embedding首尾填充一个长度为channels_size 的0向量。
+
+   - 取channels_size个尺寸为[3，dim]的卷积核，以步长stride=1，对Region embedding作卷积操作。
+
+     经 过一个卷积核能得到一个长度为sent_len-2的一维特征向量，由于选取了channel_size个卷积核，故一共能得到channel_size个一维向量，可以将它们拼接成一个维度为[sent_len-2，channels_size]的矩阵（维度同Region embedding）
+
+   - 举例
+
+     ![fdsdf](/img/fdsdf-1557041769750.png)
+
+3. 1/2池化层
+
+   - 池化前，对经过等长卷积得到的矩阵中的每一个特征向量的末端填充一个0。
+
+   - 取尺寸为[3，1]的池化窗口，步长为2，对每一个特征向量进行池化，每个特征向量就会生成一个长度减半的向量。然后把所有生成的向量拼接到一起，得到维度为[（sent_len-2）/2，channels_size]的矩阵。
+
+   - 举例
+
+     ![二分之一池化](/img/二分之一池化-1557042248078.png)
+
+4. 结构梗概
+
+   - ①对文本对应的词向量矩阵，先用3_gram的 卷积核做一次卷积得到Region embedding。
+   - ②对Region embedding先连续做两次等长卷积，再做一次1/2池化，使Region embedding在第一个维度上减半。
+   - ③重复②中操作，直至Region embedding的第一个维度的长度变为2。此时Region embedding的维度为[2，channels_size]
+   - ④把③中得到的Region embedding矩阵拉伸为一维，即维度变为[2\*channels_size]，作为文本的向量表示。
+
+5. 补充:
+
+   如（1）中的网络结构所示，网络中每个BLOCK用到了残差连接的Trick，对与层次比较深的复杂网络，使用残差连接能在一定程度上缓解梯度消失问题，并加速模型的收敛。
+
+#### （3）网络搭建
+
+```python
+class DPCNN_model(nn.Module):
+
+    def __init__(self, args):
+        super(DPCNN_model, self).__init__()
+        vocb_size = args['vocb_size']
+        dim = args['dim']
+        n_class = args['n_class']
+        # max_len = args['max_len']
+        embedding_matrix = args['embedding_matrix']
+        self.embeding = nn.Embedding(vocb_size, dim, _weight=embedding_matrix)
+        self.channel_size = 200
+        self.conv_region_embedding = nn.Conv2d(1, self.channel_size, (3, dim), stride=1) #[N, max_length, dim]
+        self.BatchNorm = nn.BatchNorm2d(self.channel_size)
+        self.conv3 = nn.Conv2d(self.channel_size, self.channel_size, (3, 1), stride=1)
+        self.pooling = nn.MaxPool2d(kernel_size=(3, 1), stride=2)
+        self.padding_conv = nn.ZeroPad2d((0, 0, 1, 1)) #上下填充
+        self.padding_pool = nn.ZeroPad2d((0, 0, 0, 1)) #仅下方填充
+        self.act_fun = nn.ReLU()
+        self.linear_out = nn.Linear(2 * self.channel_size, n_class)
+        self.softmax = nn.Softmax()
+
+    def forward(self, x):
+        batch = x.shape[0]
+        x = self.embeding(x)  # [100,64,256]
+        x = torch.unsqueeze(x, 1)  # [100,1,64,256] 二维卷积，输入维度为4
+
+        # Region embedding
+        x = self.conv_region_embedding(x)  
+	# [batch_size, channel_size, length=句长-2, 1]
+        x = self.BatchNorm(x)
+        x = self.act_fun(x)
+        px = x
+
+        # 连续两次等长卷积
+        x = self.padding_conv(x)  # pad保证等长卷积，先通过激活函数再卷积
+        x = self.conv3(x)
+        x = self.BatchNorm(x)
+        x = self.act_fun(x)
+        x = self.padding_conv(x)
+        x = self.conv3(x)
+        x = self.BatchNorm(x)
+        x = self.act_fun(x)
+
+        x = x + px                #残差连接
+        while x.size()[-2] > 2:  
+	    # 直到length==2, 长度设置时候有要求，最好是2的n次方
+            x = self._block(x)
+
+        x = x.view(batch, 2 * self.channel_size)
+        x = self.linear_out(x)
+        x = self.softmax(x)
+        return x
+
+    def _block(self, x):
+        x = self.padding_pool(x)
+        px = self.pooling(x)
+
+        x = self.padding_conv(px)
+        x = self.conv3(x)
+        x = self.BatchNorm(x)
+        x = F.relu(x)
+
+        x = self.padding_conv(x)
+        x = self.conv3(x)
+        x = self.BatchNorm(x)
+        x = F.relu(x)
+
+        # Short Cut
+        x = x + px
+
+        return x
+```
+
+
+
+**参考链接**：
+
+<https://ai.tencent.com/ailab/media/publications/ACL3-Brady.pdf>
+
+<https://zhuanlan.zhihu.com/p/35457093>
+

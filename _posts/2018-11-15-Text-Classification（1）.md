@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      Text Classification（1）
-subtitle:   文本分类一
+subtitle:   文本分类一（概述，机器学习方法）
 date:       2018-11-15
 author:     biggan
 header-img: img/post-bg-swift.jpg
