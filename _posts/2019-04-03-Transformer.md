@@ -51,17 +51,14 @@ Attention计算的**输入**有当前句子的向量表示**Q**，参考句子�
 ###### Attention计算的过程
 
 - 公式
-
-  $$Attention(Q,K,V)$$
-
-  $$\longrightarrow  Q=QW^Q,K=KW^K,V= VW^V$$
-
-  $\longrightarrow  attn=softmax(\frac{QK^T}{\sqrt{d_k}})$
-
-  $\longrightarrow Z=attnV$
-
-  对公示的简单理解：Q、K用来求权重，然后利用此权重对V进行加权平均得到Q的新表示Z。
-
+$$
+  Attention(Q,K,V)\\
+Q=QW^Q,K=KW^K,V= VW^V\\
+  attn=softmax(\frac{QK^T}{\sqrt{d_k}})\\
+ Z=attnV
+  $$
+对公示的简单理解：Q、K用来求权重，然后利用此权重对V进行加权平均得到Q的新表示Z。
+  
 - 具体过程
 
 $\longrightarrow$先分别对Q，K，V做一个普通的线性变换得到新的Q，K，V，其中**要求Q，K映射到相同的维度**。
@@ -69,8 +66,6 @@ $\longrightarrow$先分别对Q，K，V做一个普通的线性变换得到新的
 $\longrightarrow$当前句子某一个单词向量$Q_i$的更新过程如下：
 
 拿$Q_i$分别和参考句子的单词向量$K_j$（j=1，...，$len(K)$）做点乘，得到一个长度为参考句子单词数量的向量，然后用$softmax$将这个向量转化成具有相对概率的权重向量$attn_i$（len($attn_i$)=len(Q)，$attn_i$的一个元素$attn_{ij}$表示参考句子的第$j$个单词对当前句子的第$i$个单词的权重），然后利用$attn_i$对参考句子的另外一个向量表示$V$进行加权平均，得到$Z_i$。
-
-
 
 #### 2. 训练和翻译的区别
 
@@ -96,9 +91,9 @@ $\longrightarrow$当前句子某一个单词向量$Q_i$的更新过程如下：
 
 ![TIM截图20190403165729](/img/TIM截图20190403165729.jpg)
 
-$$\longrightarrow cal\_angle(pos,2i) =\frac{pos}{10000^{\frac{2i}{d_{model}}}},PE(pos,2i)=sin( cal\_angle(pos,2i))$$
+$$ cal\_angle(pos,2i) =\frac{pos}{10000^{\frac{2i}{d_{model}}}},PE(pos,2i)=sin( cal\_angle(pos,2i))$$
 
-$$\longrightarrow cal\_angle(pos,2i+1) =\frac{pos}{10000^{\frac{2i}{d_{model}}}},PE(pos,2i)=cos( cal\_angle(pos,2i))$$						
+$$cal\_angle(pos,2i+1) =\frac{pos}{10000^{\frac{2i}{d_{model}}}},PE(pos,2i)=cos( cal\_angle(pos,2i))$$						
 
 ###### (2 Multi—Head Attention
 
