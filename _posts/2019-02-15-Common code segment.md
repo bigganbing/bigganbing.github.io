@@ -7,7 +7,7 @@ author:     biggan
 header-img: img/post-bg-swift.jpg
 catalog: true
 tags:
-    - Pytorch
+    - Trick
 typora-root-url: ..
 ---
 
