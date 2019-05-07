@@ -17,12 +17,12 @@ sidebar-avatar: /img/金木.jpeg    # use absolute URL, seeing it's used in both
 
 # SNS settings  社交账号
 RSS: true
-# weibo_username:     qiubaiying
-# zhihu_username:     chen-zhen-hao-19
+# weibo_username:     
+# zhihu_username:     
 github_username:    bigganbing
-#facebook_username:  baiying.qiu.7
-#jianshu_username:   e71990ada2fd
-# twitter_username:   DavisChan1998
+#facebook_username:  
+#jianshu_username:   
+# twitter_username:   
 
 
 
@@ -84,7 +84,7 @@ gitalk:
 
 # Featured Tags
 featured-tags: true                     # 是否使用首页标签
-featured-condition-size: 1              # 相同标签数量大于这个数，才会出现在首页
+featured-condition-size: 0              # 相同标签数量大于这个数，才会出现在首页
 
 
 
@@ -99,10 +99,6 @@ friends: [
  {
         title: "CZH的Blog",
         href: "https://viewsetting.github.io"
-    },
- {
-        title: "WDNB的Blog",
-        href: "https://zoomdong.site"
     },
  {
         title: "PerfectPan",
