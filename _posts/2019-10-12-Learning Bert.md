@@ -59,7 +59,7 @@ Bert 的**输入表示（ input embeddings ）**由每一个token对应的Token 
 
 <img src="/img/TIM截图20191106220713.jpg" alt="TIM截图20191106220713" style="zoom:90%;" />
 
-**Note**：Segment Embedding、Position Embedding和Token Embedding相同都是需要学习的参数，而不同于Transfomer原文中Position Embedding用三角公式直接计算得到。
+**Note**：Segment Embedding、Position Embedding和Token Embedding都是需要学习的参数，这里的Position Embedding不同于Transfomer原文中Position Embedding用公式直接计算得到。
 
 ##### (6)  Bert模型的两个预训练任务 
 
