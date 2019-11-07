@@ -1,8 +1,8 @@
 ---
 layout:     post
 title:      Learning Bert
-subtitle:   Bert模型和Pytorch调用预训练模型
-date:       2019-10-27
+subtitle:   Bert模型 && Pytorch下使用预训练模型
+date:       2019-10-12
 author:     甘国兵
 header-img: img/post-bg-swift.jpg
 catalog: true
@@ -64,7 +64,6 @@ Bert 的**输入表示（ input embeddings ）**由每一个token对应的Token 
 ##### (6)  Bert模型的两个预训练任务 
 
  <div align="center"><img src="/img/TIM截图20191107170022.jpg" alt="TIM截图20191107170022" style="zoom:90%;" /></div>
-
 1. **Masked Language Model**（MLM：类似完形填空问题）
 
    **概述**： 随机遮蔽（mask）掉句子中的一些token，然后利用上下文对遮蔽的token进行预测。这个任务主要是学习每个token的上下文表示。
@@ -162,8 +161,6 @@ Bert 的**输入表示（ input embeddings ）**由每一个token对应的Token 
 
    - 因为Bert对英文进行WordPiece，对中文基于字tokenize，被Mask的token可能不是一个完整的词，而是一个词的一部分。这种做法好还是Mask完整的词好？
    - Bert是对15%的token 进行mask，如果对一个句子中所有的词分开mask（即mask一个词产生一个样本）效果会更好吗？
-
-    
 
 2. **Next Sentence Prediction** （NSP： 下一句预测 ） 
 
