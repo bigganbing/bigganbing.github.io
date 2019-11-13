@@ -3,7 +3,7 @@ layout:     post
 title:      Learning Bert
 subtitle:   Bert模型 && Pytorch下使用预训练模型
 date:       2019-10-12
-author:     甘国兵
+author:     biggan
 header-img: img/post-bg-swift.jpg
 catalog: true
 tags:

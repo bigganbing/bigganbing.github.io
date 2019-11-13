@@ -3,7 +3,7 @@ layout:     post
 title:      Learning ELMo
 subtitle:   ELMo模型 && ELMo预训练模型的调用
 date:       2019-11-12
-author:     甘国兵
+author:     biggan
 header-img: img/post-bg-swift.jpg
 catalog: true
 tags:
