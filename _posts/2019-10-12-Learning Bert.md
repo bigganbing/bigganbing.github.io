@@ -292,7 +292,7 @@ pip install transformers
 
   - attention_mask ：文本对应的pad标记序列， shape = (batch_size,  seq_len)， 1表示该位置未被填充，0表填充。
 
-  - token_type_ids：用于区分文本中两个句子的的标记序列， shape = (batch_size,  seq_len) ， 1表示该位置未被填充，0表填充。 0表示相应token属于第一个句子,  1表示相应token属于第二个句子。
+  - token_type_ids：用于区分文本中两个句子的的标记序列， shape = (batch_size,  seq_len) 。 0表示相应token属于第一个句子,  1表示相应token属于第二个句子。
 
     *note*：实际代码中为了batch训练，input_ids、token_type_ids都会用0来pad的。
 
@@ -500,17 +500,4 @@ config 文件、vocab文件、model文件。并且这三个类都有 from_pretra
   model = BertForTextClassification.from_pretrained(args.model_name_or_path, args, config=config) # 实例化自定义网络BertForTextClassificatio、并加载预训练模型参数(model文件)。config为上一步得到的config对象，args为下游任务额外用到的超参数，可以以此方式传递给自定义的网络。
   ```
 
-  因为BertForTextClassification虽然是自定义的，但是它继承了BertPreTrainedModel，故可以直接用from_pretrained方法加载模型的权重（model文件）。
-
-
-
-
-
-
-
-
-
-
-
-
-
+  BertForTextClassification虽然是自定义的，但是它继承了BertPreTrainedModel，可以直接用from_pretrained方法加载模型的权重（model文件）。
