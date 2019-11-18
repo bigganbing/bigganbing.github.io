@@ -7,7 +7,7 @@ layout: default
 <!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
 
 <!-- Post Header -->
-<script type="text/x-mathjax-config"> 
+<!-- <script type="text/x-mathjax-config"> 
    		MathJax.Hub.Config({ TeX: { equationNumbers: { autoNumber: "all" } } }); 
    	</script>
     <script type="text/x-mathjax-config">
@@ -19,7 +19,30 @@ layout: default
     </script>
     
     <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
-    </script>
+    </script> -->
+
+<script type="text/x-mathjax-config">
+var mathId = document.getElementById("post-content"); //选择公式识别范围
+MathJax.Hub.Config({
+    showProcessingMessages: false, //关闭js加载过程信息
+    messageStyle: "none", //不显示信息
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ], //行内公式选择符
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ], //段内公式选择符
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code','a'] //避开某些标签
+    },
+    "HTML-CSS": {
+        availableFonts: ["STIX","TeX"], //可选字体
+        showMathMenu: false //关闭右击菜单显示
+    }
+});
+MathJax.Hub.Queue(["Typeset",MathJax.Hub,mathId]);
+</script>
+<script src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
 <style type="text/css">
     header.intro-header{
         position: relative;
