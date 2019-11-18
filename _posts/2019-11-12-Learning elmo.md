@@ -99,7 +99,7 @@ Elmo的双向语言模型是用**双向的多层LSTM**实现的（上图以两�
 
   - 最简单的做法
 
-    只取ELMo两个方向lstm的最高层表示，并拼接，即：$\mathbf{E} \mathbf{L} \mathbf{M} \mathbf{o}_{k}=E\left(R_{k}\right)=\mathbf{h}_{k, L}^{L N}$
+    只取ELMo两个方向lstm的最高层表示，并拼接，即：$ELMo_{k}=E\left(R_{k}\right)=h_{k, L}^{L N}$
 
   - 更普遍的做法
 
