@@ -7,7 +7,7 @@ layout: default
 <!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
 
 <!-- Post Header -->
-<script type="text/x-mathjax-config"> 
+<!-- <script type="text/x-mathjax-config"> 
    		MathJax.Hub.Config({ TeX: { equationNumbers: { autoNumber: "all" } } }); 
    	</script>
     <script type="text/x-mathjax-config">
@@ -19,7 +19,30 @@ layout: default
     </script>
     
     <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
-    </script>
+    </script> -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    TeX: {
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    },
+    SVG: {
+      scale: 90
+    },
+    tex2jax: {
+      inlineMath: [ ['$','$'] ],
+      displayMath: [ ['$$','$$'] ],
+      processEscapes: true,
+    }
+  });
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG">
+</script>
+
+
 <style type="text/css">
     header.intro-header{
         position: relative;
