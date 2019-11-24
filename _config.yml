@@ -43,7 +43,7 @@ gems: [jekyll-paginate]
 
 
 # MathJax rendering for layout:page (e.g. post preview)
-# page-mathjax: false
+page-mathjax: true
 
 
 # Markdown settings
