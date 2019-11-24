@@ -1,4 +1,5 @@
 ---
+
 layout:     post
 title:      Learning ELMo
 subtitle:   ELMo模型 && ELMo预训练模型的调用
@@ -66,10 +67,16 @@ typora-root-url: ..
 **训练目标**：
 
 最大化前向和后向语言模型的对数似然，即：
+
+
 $$
 \begin{array}{l}{\sum_{k=1}^{N}\left(\log p\left(t_{k} | t_{1}, \ldots, t_{k-1} ; \Theta_{x}, \vec{\Theta}_{L S T M}, \Theta_{s}\right)\right.} \\ {\left.\quad+\log p\left(t_{k} | t_{k+1}, \ldots, t_{N} ; \Theta_{x}, \overleftarrow{\Theta}_{L S T M}, \Theta_{s}\right)\right)}\end{array}
 $$
+
+
 其中， $\Theta_{x}$ 为模型token表示层的参数， $\Theta_{s}$为模型 Softmax层的参数，$\vec {\Theta}_{LSTM}$ 为前向LSTM的参数， $\overleftarrow {\Theta}_{LSTM}$ 为后向LSTM的参数。
+
+
 
 #### 4 模型结构
 
@@ -86,15 +93,19 @@ Elmo的双向语言模型是用**双向的多层LSTM**实现的（上图以两�
 #### 5 Elmo应用到下游任务
 
 - 一个拥有L层biLM 的Elmo结构，对于每一个token $t_k$，有$2L+1$个表示。
+  
+  
   $$
   \begin{aligned} R_{k} &=\left\{\mathrm{x}_{k}^{L M}, \overrightarrow{\mathbf{h}}_{k, j}^{L M}, \overleftarrow{\mathbf{h}}_{k, j}^{L M} | j=1, \ldots, L\right\} \\ &=\left\{\mathbf{h}_{k, j}^{L M} | j=0, \ldots, L\right\} \end{aligned}
-  $$
+$$
+  
+
   $其中$，
 
   $x_{k}^{LM}$是token $t_k$基于char卷积得到的word-emdedding；$\overrightarrow {h}_{k,j}^{LM}$为token $t_k$在第$j$层前向$LSTM$中的隐状态，$\overleftarrow {h}_{k, }^{LM}$为token $t_k$在第$j$层后向$LSTM$中的隐状态。
-
+  
   除了$h_{k,0}^{LM}=\left[x_{k}^{LM};x_{k}^{LM}\right]$，$h_{k,j}^{LM}=\left[\overrightarrow {h}_{k,j}^{LM}, \overleftarrow{h}_{k,j}^{LM}\right]$ 是token $t_k$ 在第 $j$ 层两个方向LSTM中隐状态的拼接。
-
+  
 - 对于下游任务，如何应用token $t_k$的$2L+1$个表示$R_k$：
 
   - 最简单的做法
