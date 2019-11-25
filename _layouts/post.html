@@ -42,10 +42,11 @@ MathJax.Hub.Config({
 });
 MathJax.Hub.Queue(["Typeset",MathJax.Hub,mathId]);
 </script>
-<script src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
-.MathJax_Display{overflow-x:auto;overflow-y:hidden;}
-.MathJax{outline:0;}
+<script type="text/javascript"
+   src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML,http://myserver.com/MathJax/config/local/local.js">
+</script>
+<link rel="dns-prefetch" href="//cdn.bootcss.com" />
 
 <script data-no-instant>
 InstantClick.on('change', function(isInitialLoad){
@@ -58,6 +59,10 @@ InstantClick.on('change', function(isInitialLoad){
 });
 InstantClick.init();
 </script>
+
+<script src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js"></script>
+
+
 
 <!-- 
 <script type="text/x-mathjax-config"> MathJax.Hub.Config({ TeX: { equationNumbers: { autoNumber: "all" } } }); </script>
