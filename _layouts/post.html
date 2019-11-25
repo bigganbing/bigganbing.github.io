@@ -8,19 +8,55 @@ layout: default
 
 <!-- Post Header -->
 
-<script type="text/x-mathjax-config">
+<!-- <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
+    showProcessingMessages: false,
+    messageStyle: "none",
     tex2jax: {
       inlineMath: [ ['$','$'], ["\\(","\\)"] ],
       displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-    },
-    showProcessingMessages: false,
-    messageStyle: "none"
+    }
   });
 </script>
 
 <script type="text/javascript" async
   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async>
+</script> -->
+
+<script type="text/x-mathjax-config">
+var mathId = document.getElementById("post-content"); //选择公式识别范围
+MathJax.Hub.Config({
+    showProcessingMessages: false, //关闭js加载过程信息
+    messageStyle: "none", //不显示信息
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ], //行内公式选择符
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ], //段内公式选择符
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code','a'] //避开某些标签
+    },
+    "HTML-CSS": {
+        availableFonts: ["STIX","TeX"], //可选字体
+        showMathMenu: false //关闭右击菜单显示
+    }
+});
+MathJax.Hub.Queue(["Typeset",MathJax.Hub,mathId]);
+</script>
+<script src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+.MathJax_Display{overflow-x:auto;overflow-y:hidden;}
+.MathJax{outline:0;}
+
+<script data-no-instant>
+InstantClick.on('change', function(isInitialLoad){
+    if (isInitialLoad === false) {
+        if (typeof MathJax !== 'undefined'){
+            var mathId = document.getElementById("post-content");
+            MathJax.Hub.Queue(["Typeset",MathJax.Hub,mathId]);
+        }
+    }
+});
+InstantClick.init();
 </script>
 
 <!-- 
