@@ -11,7 +11,7 @@ tags:
 typora-root-url: ..
 ---
 
-### NLP常用的代码段
+### 常用的代码段
 
 
 
@@ -117,5 +117,49 @@ pk.dump(data_info, open('../data/data_info.sav', 'wb'))
 '''加载持久化的对象'''
 data_info = pk.load(open('../data/data_info.sav', 'rb'))
 
+```
+
+
+
+##### 设置随即种子，使结果可复现
+
+```python
+def seed_set(seed=2019):
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed(seed)
+    torch.backends.cudnn.deterministic = True
+```
+
+
+
+##### 时间相关
+
+``` python
+'''1.获取当前时间''' 
+import time
+time1 = time.localtime()    # 获取当前的时间
+print(time1)		# time.struct_time(tm_year=2019, tm_mon=12, tm_mday=14, tm_hour=21, tm_min=10, tm_sec=0, tm_wday=5, tm_yday=348, tm_isdst=0)
+
+str_time = str(time1.tm_mon) + '.' + str(time1.tm_mday) + '_' + str(time1.tm_hour) + ':' + str(time1.tm_min) # 获取时间字符串形式
+print(str_time)		# 12.14_21:10
+
+localtime = time.asctime(time1) # 获取可读时间（一种格式化方式）
+print(localtime)	# Sat Dec 14 21:10:00 2019
+
+strftime = time.strftime("%Y-%m-%d %H:%M:%S", time1)    # 自定义时间的格式化形式
+print(strftime)		# 2019-12-14 21:10:00
+
+
+'''2.时间间隔'''
+import time
+import datetime
+time1 = time.time()	# 每个时间戳都以自从1970年1月1日午夜（历元）经过了多长时间来表示。
+time.sleep(3)
+time2 = time.time()
+delta_time = time2 -time1	# 时间间隔是以秒为单位的浮点小数。
+print(delta_time)	# 3.000441789627075
+delta_time = datetime.timedelta(seconds=delta_time)
+print(delta_time)	# 0:00:03.000442
 ```
 
