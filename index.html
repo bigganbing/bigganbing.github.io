@@ -1,16 +1,10 @@
 ---
 layout: page
+description: "Who shall say what prospect life offers to another?"
 description: "Coding is the road to hair loss！"
 ---
 
-<!-- <script language="javascript" type="text/javascript">   
-    // 以下方式直接跳转  
-   window.location.href='https://qcai2020.gitee.io/';  
-    // 以下方式定时跳转  
-//    setTimeout("javascript:location.href='https://qcai2020.gitee.io/'", 0);   
-</script>   -->
-
-<!-- {% for post in paginator.posts %}
+{% for post in paginator.posts %}
 <div class="post-preview">
     <a href="{{ post.url | prepend: site.baseurl }}">
         <h2 class="post-title">
@@ -31,19 +25,3 @@ description: "Coding is the road to hair loss！"
 </div>
 <hr>
 {% endfor %}
-
-<!-- Pager -->
-{% if paginator.total_pages > 1 %}
-<ul class="pager">
-    {% if paginator.previous_page %}
-    <li class="previous">
-        <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; Newer Posts</a>
-    </li>
-    {% endif %}
-    {% if paginator.next_page %}
-    <li class="next">
-        <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Older Posts &rarr;</a>
-    </li>
-    {% endif %}
-<!-- </ul> -->
-{% endif %}
